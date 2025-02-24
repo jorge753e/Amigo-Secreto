@@ -30,14 +30,22 @@ function limpiarCaja(cajaElemento,texto){
 
 // Creando la lista de amigo que se sortearan 
 function agregarAmigo(){
+
     if(document.getElementById('amigo').value != ''){
-        listaDeAmigos.push(document.getElementById('amigo').value); 
-        
-        //cambia el valor del input Lo limpia
-        let miInput = document.querySelector("#amigo");
-        miInput.value = "";
-        asignarTextoElementoLista('ul',listaDeAmigos);
+        let verificar = document.getElementById('amigo').value;
+        if(listaDeAmigos.includes(verificar)){
+            alert('Este nombre ya existe');
         }else{
+            listaDeAmigos.push(document.getElementById('amigo').value); 
+        
+            //cambia el valor del input Lo limpia
+            let miInput = document.querySelector("#amigo");
+            miInput.value = "";
+            asignarTextoElementoLista('ul',listaDeAmigos);
+        }      
+
+        }
+        else{
         alert("Debe colocar el nombre de un amigo para el sorteo");
         }
 }
