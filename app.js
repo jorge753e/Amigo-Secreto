@@ -1,6 +1,7 @@
 // El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
 let numSorteado = 0;
 let listaDeAmigos = [];
+let listaNumSorteados = [];
 
 // function de asisgnar texto al elemento 
 function asignarTextoElementoLista(elemento,lista){
@@ -58,20 +59,38 @@ function sortearAmigo(){
     if(numLista!=0){
     // GENERAR UN NUMERO ALEATORIO ENTRE 0 A N  
     numSorteado = Math.floor(Math.random()*numLista);
-    console.log(numSorteado);
-    // ESE NUMERO SERA EL INDICE DE LA LISTA 
-    limpiarCaja("#listaAmigos","");
-    asignarTextoElemento('#resultado', `El amigo secreto sorteado es: ${listaDeAmigos[numSorteado]}`);
-    document.getElementById('reiniciar').removeAttribute('disabled');
+        if(listaNumSorteados.length == numLista){
+            alert('Ya se sortearon todas los amigos secretos posibles');
+
+        }else{
+            if(listaNumSorteados.includes(numSorteado)){
+                return sortearAmigo();
+            }else{
+                console.log(numSorteado);
+                // ESE NUMERO SERA EL INDICE DE LA LISTA 
+                
+                listaNumSorteados.push(numSorteado);
+                limpiarCaja("#listaAmigos","");
+                asignarTextoElemento('#resultado', `El amigo secreto sorteado es: ${listaDeAmigos[numSorteado]}`);
+            document.getElementById('reiniciar').removeAttribute('disabled');
+               
+             }
+        
+         }
+    
     }else{
         alert('No se puede sortear porquue no ha ingresado nombres');
     }
     return;
    
 }
+
+
 function condicionesIniciales(){
     numSorteado = 0;
     listaDeAmigos = [];
+    listaNumSorteados = [];
+    limpiarCaja("#listaAmigos","");
     asignarTextoElemento('#resultado','');
 
 }
