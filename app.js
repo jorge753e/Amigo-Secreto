@@ -54,11 +54,27 @@ function sortearAmigo(){
     // ESE NUMERO SERA EL INDICE DE LA LISTA 
     limpiarCaja("#listaAmigos","");
     asignarTextoElemento('#resultado', `El amigo secreto sorteado es: ${listaDeAmigos[numSorteado]}`);
+    document.getElementById('reiniciar').removeAttribute('disabled');
     }else{
         alert('No se puede sortear porquue no ha ingresado nombres');
     }
     return;
    
 }
+function condicionesIniciales(){
+    numSorteado = 0;
+    listaDeAmigos = [];
+    asignarTextoElemento('#resultado','');
+
+}
+
+function reiniciarJuego(){
+    condicionesIniciales();
+    document.querySelector('#reiniciar').setAttribute('disabled','true');
+}
+
+
+
+
 
 
