@@ -1,4 +1,4 @@
-Bienvenido al Juego del amigo secetro
+Juego del amigo secetro
 
 Descripción
 Este es un sencillo juego web del Amigo Secreto, desarrollado con JavaScript, HTML y CSS. Permite a un grupo de personas ingresar sus nombres y realizar un sorteo aleatorio para asignar a cada uno un amigo secreto.
